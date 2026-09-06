@@ -1,4 +1,3 @@
-
 # 🐾 Pata Amiga — Data Warehouse
 
 |                         |                                          |
@@ -42,5 +41,12 @@ Os números abaixo orientaram todas as decisões de limpeza.
 | Marcos em branco — Despacho              | 1.665 pedidos                       |
 | Marcos em branco — Entrega               | 1.953 pedidos (processos em aberto) |
 
-> **Observação:** marcos em branco não são erros — representam processos
-> ainda em aberto na data de corte da base (31/03/2024).
+
+---
+
+## ⭐ Modelo Dimensional
+
+O modelo dimensional foi estruturado em esquema estrela, tendo `fato_pedido`
+como tabela central, com granularidade de uma linha por pedido.
+
+![Modelo Estrela](diagrama/modelo_estrela.png)
