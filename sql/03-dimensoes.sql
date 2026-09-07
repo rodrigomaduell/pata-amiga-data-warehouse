@@ -78,7 +78,31 @@ SELECT DISTINCT
 
 -- >>> ESCREVA AQUI: a linha -1 e o INSERT ... SELECT da dim_praca
 
+INSERT INTO dim_praca
+    (sk_praca, cod_praca, nome_praca, regional, domicilios_com_pet)
+VALUES (-1, '-1', 'Nao Informado', 'Nao Informado', NULL); 
+-- foi colocado '-1' no campo cod_praca devido o campo ter sido criado com 
+-- capacidade de apenas 10 caracteres(VARCHAR(10)), e o valor -1 não é aceito como inteiro, então foi colocado como string.
 
+-- carga das pracas
+INSERT INTO dim_praca
+    (cod_praca, nome_praca, regional, domicilios_com_pet)
+SELECT
+    CodPraca,
+
+    MAX(NomePraca) AS nome_praca,
+    MAX(Regional) AS regional,
+    
+    CAST(
+        REPLACE(
+            MAX(DomiciliosComPet),
+            '.', ''
+        ) AS SIGNED
+    ) AS domicilios_com_pet
+
+FROM stg_loja_praca
+
+GROUP BY CodPraca;
 
 
 -- -------------------------------------------------------------------------------------
