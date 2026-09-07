@@ -34,6 +34,38 @@ USE dw_pata_amiga;
 --  teste MED antes de RA. Compare em UPPER e use trechos SEM acento.
 
 -- >>> ESCREVA AQUI: a linha -1 e o INSERT ... SELECT da dim_categoria
+INSERT INTO dim_categoria
+    (sk_categoria, categoria_origem, nome_categoria, grupo_categoria)
+VALUES (-1, 'Nao Informado', 'Nao Informado', 'Nao Informado');
+
+INSERT INTO dim_categoria
+    (categoria_origem, nome_categoria, grupo_categoria)
+SELECT DISTINCT 
+    CategoriaProduto,
+
+    CASE
+        WHEN UPPER(CategoriaProduto) LIKE '%MED%' THEN 'Medicamento'
+        WHEN UPPER(CategoriaProduto) LIKE '%PETISC%' THEN 'Petisco'
+        WHEN UPPER(CategoriaProduto) LIKE '%RA%' THEN 'Racao'
+        WHEN UPPER(CategoriaProduto) LIKE '%HIG%' THEN 'Higiene'
+        WHEN UPPER(CategoriaProduto) LIKE '%BRINQ%' THEN 'Brinquedo'
+        WHEN UPPER(CategoriaProduto) LIKE '%ACESS%' THEN 'Acessorio'
+        WHEN UPPER(CategoriaProduto) LIKE '%SERV%' THEN 'Servico'
+        ELSE 'Nao Informado'
+    END,
+
+    CASE
+        WHEN UPPER(CategoriaProduto) LIKE '%MED%' THEN 'Saude e Higiene'
+        WHEN UPPER(CategoriaProduto) LIKE '%PETISC%' THEN 'Alimentacao'
+        WHEN UPPER(CategoriaProduto) LIKE '%RA%' THEN 'Alimentacao'
+        WHEN UPPER(CategoriaProduto) LIKE '%HIG%' THEN 'Saude e Higiene'
+        WHEN UPPER(CategoriaProduto) LIKE '%BRINQ%' THEN 'Bem-estar'
+        WHEN UPPER(CategoriaProduto) LIKE '%ACESS%' THEN 'Bem-estar'
+        WHEN UPPER(CategoriaProduto) LIKE '%SERV%' THEN 'Bem-estar'
+        ELSE 'Nao Informado'
+    END
+
+    FROM stg_pedido;
 
 
 -- =====================================================================================
@@ -45,6 +77,8 @@ USE dw_pata_amiga;
 --  milhar, tire-o antes do CAST.
 
 -- >>> ESCREVA AQUI: a linha -1 e o INSERT ... SELECT da dim_praca
+
+
 
 
 -- -------------------------------------------------------------------------------------
