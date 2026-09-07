@@ -114,6 +114,17 @@ GROUP BY CodPraca;
 
 -- >>> ESCREVA AQUI: o INSERT ... SELECT da bridge_loja_praca
 
+INSERT INTO bridge_loja_praca
+    (cod_loja, sk_praca, fator_publico)
+SELECT 
+    s.CodLoja,
+    d.sk_praca,
+    CAST(s.PercentualPublico AS DECIMAL(6,4)) AS fator_publico
+FROM stg_loja_praca AS s
+JOIN dim_praca AS d
+    ON s.CodPraca = d.cod_praca;
+
+
 
 -- =====================================================================================
 --  Confira o resultado com o 00-conferencia.sql (bloco "DEPOIS DO 03").
