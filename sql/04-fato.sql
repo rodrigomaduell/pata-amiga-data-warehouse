@@ -19,6 +19,7 @@ USE dw_pata_amiga;
 
 -- >>> ESCREVA AQUI o INSERT INTO fato_pedido (...) SELECT ... FROM stg_pedido ...
 --
+
 --  Roteiro das colunas:
 --
 --  * sk_tempo_pedido / sk_tempo_entrega: a chave e a data no formato AAAAMMDD.
