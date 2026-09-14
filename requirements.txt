@@ -1,0 +1,4 @@
+# Este projeto não utiliza bibliotecas Python.
+# Ferramentas necessárias para execução:
+# - MySQL 8.0 ou superior
+# - MySQL Workbench (recomendado para execução dos scripts)
