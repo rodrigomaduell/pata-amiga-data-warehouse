@@ -31,8 +31,6 @@ como tabela central, com granularidade de uma linha por pedido.
 
 ---
 
-
-
 ## Como reproduzir o projeto
 
 Execute os scripts SQL na ordem numérica apresentada na pasta `sql/`:
@@ -45,6 +43,13 @@ Execute os scripts SQL na ordem numérica apresentada na pasta `sql/`:
 
 ---
 
+## Apresentação do Projeto
+
+Neste vídeo, apresento brevemente o projeto discorrendo sobre alguns aspectos
+e até mesmo executando brevemente uma consulta para resposta de uma das
+perguntas de negócio.
+
+**[Assistir à apresentação do projeto](video/Apresentacao-Projeto.mp4)**---
 
 
 ## Diagnóstico da Origem
@@ -68,12 +73,11 @@ Os números abaixo orientaram todas as decisões de limpeza.
 
 ---
 
-
 ## Perguntas de Negócio Respondidas
 
 ### P1 — Onde está o gargalo do processo de entrega?
 
-O intervalo **Nota - Despacho** é o principal gargalo, com média de **4,11 dias,** 
+O intervalo **Nota - Despacho** é o principal gargalo, com média de **4,11 dias,**
 significativamente acima dos demais intervalos.
 
 O tempo total médio do processo é de **9,00 dias**.
@@ -212,10 +216,10 @@ de corte da base (31/03/2024) — não são erros de dados.
   perfis de compra diferentes.
 - **Recomendação de nova loja** — o ranking por itens/mil hab. indica potencial
   relativo, mas a decisão final exige dados externos: custo de implantação,
-  distância logística e potencial de crescimento, entre outros que poderiam 
+  distância logística e potencial de crescimento, entre outros que poderiam
   enriquecer a análise.
 - **Canal Não Informado** — representa pedidos cujo canal de origem não foi
-  registrado corretamente no sistema de origem, limitando a análise de 
+  registrado corretamente no sistema de origem, limitando a análise de
   descontos por canais de venda.
 
 ---
@@ -229,21 +233,19 @@ de corte da base (31/03/2024) — não são erros de dados.
 
 ---
 
-
 ## Recomendação Final
 
-Com base nos dados disponíveis,  **Rio dos Cedros deve ser a primeira cidade 
+Com base nos dados disponíveis,  **Rio dos Cedros deve ser a primeira cidade
 investigada para uma possível expansão** , seguida por Presidente Getúlio e Ibirama.
 
-A recomendação considera o elevado índice de itens vendidos por 1.000 habitantes, 
-mas deve ser validada com informações adicionais sobre logística, custos, concorrência, 
+A recomendação considera o elevado índice de itens vendidos por 1.000 habitantes,
+mas deve ser validada com informações adicionais sobre logística, custos, concorrência,
 renda, implantação e potencial de crescimento, etc.
 
-Dessa forma, o Data Warehouse permite  **priorizar oportunidades de investigação**, 
+Dessa forma, o Data Warehouse permite  **priorizar oportunidades de investigação**,
 mas não sustenta sozinho uma decisão definitiva sobre a localização da próxima loja.
 
 ---
-
 
 ## Tecnologias Utilizadas
 
@@ -255,7 +257,6 @@ mas não sustenta sozinho uma decisão definitiva sobre a localização da próx
 * **Git / GitHub**
 
 ---
-
 
 ## Estrutura do Projeto
 
